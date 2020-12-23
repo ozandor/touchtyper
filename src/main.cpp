@@ -1,8 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <stdio.h>
 
-int ref_width = 800;
-int ref_height = 450;
+int ref_width = 1120;
+int ref_height = 630;
 
 int main() {
     sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(ref_width, ref_height), "TIKTIKTIK", sf::Style::Default);
