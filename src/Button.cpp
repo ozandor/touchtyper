@@ -1,9 +1,11 @@
 #include "Button.h"
 
-Button::Button(sf::RenderWindow* window, wstring title, int dx, int dy, int dw, int dh, sf::Font* font, int output) {
+Button::Button(sf::RenderWindow* window, wstring title, int dx, int dy, int dw, int dh, sf::Font* font, int output, Messager* msg) {
     wind = window;
     font_size = dh*0.7;
     
+    messager = msg;
+
     output_mod = output;
 
     x = dx;
@@ -107,6 +109,7 @@ void Button::Calculate() {
             } else {
                 if (pressed) {
                     pressed = false;
+                    messager->setMessage(output_mod);
                     printf("%d\n",output_mod);
                 }
                 if (dark_mode) {
@@ -127,4 +130,8 @@ void Button::Draw() {
         wind->draw(*drawing);
         wind->draw(*button_title);
     }
+}
+
+int Button::HandleMessage() {
+    return messager->getMessage();
 }

@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <string>
 #include <SFML/Graphics.hpp>
+#include "Messager.h"
 using namespace std;
 
 class Button {
     public:
-        Button(sf::RenderWindow* window, wstring title, int dx, int dy, int dw, int dh, sf::Font* font, int output);
+        Button(sf::RenderWindow* window, wstring title, int dx, int dy, int dw, int dh, sf::Font* font, int output, Messager* msg);
         ~Button();
 
         void SetColorMode(bool m);
@@ -13,7 +14,11 @@ class Button {
 
         void Calculate();
         void Draw();
+
+        int HandleMessage();
     private:
+        Messager* messager = NULL;
+
         sf::RenderWindow* wind = NULL;
         sf::Sprite* drawing = NULL;
         sf::Texture *darkI = NULL, *darkH = NULL, *darkP = NULL;
