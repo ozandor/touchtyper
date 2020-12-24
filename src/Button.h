@@ -26,7 +26,7 @@ class Button {
         sf::Text* button_title = NULL;
 
         int font_size = 0;
-        bool dark_mode = false;
+        bool dark_mode = true;
         bool visibility = true;
 
         int x = 0;

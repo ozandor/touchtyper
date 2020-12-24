@@ -5,8 +5,8 @@
 #include "Messager.h"
 using namespace std;
 
-int ref_width = 1120;
-int ref_height = 630;
+int ref_width = 1366;
+int ref_height = 768;
 //değişim deneme
 int main() {
     sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(ref_width, ref_height), "TIKTIKTIK", sf::Style::Default);
@@ -32,21 +32,21 @@ int main() {
 
 	vector<Button> lesson_buttons;
 
-	Button ders1(window, L"Ders1", 10, 10, 120, 30, &coolvetica, 1, msg); lesson_buttons.push_back(ders1);
-	Button ders2(window, L"Ders2", 10, 50, 120, 30, &coolvetica, 2, msg); lesson_buttons.push_back(ders2);
-	Button ders3(window, L"Ders3", 10, 90, 120, 30, &coolvetica, 3, msg); lesson_buttons.push_back(ders3);
-	Button ders4(window, L"Ders4", 10, 130, 120, 30, &coolvetica, 4, msg); lesson_buttons.push_back(ders4);
-	Button ders5(window, L"Ders5", 10, 170, 120, 30, &coolvetica, 5, msg); lesson_buttons.push_back(ders5);
-	Button ders6(window, L"Ders6", 10, 210, 120, 30, &coolvetica, 6, msg); lesson_buttons.push_back(ders6);
-	Button ders7(window, L"Ders7", 10, 250, 120, 30, &coolvetica, 7, msg); lesson_buttons.push_back(ders7);
-	Button ders8(window, L"Ders8", 10, 290, 120, 30, &coolvetica, 8, msg); lesson_buttons.push_back(ders8);
-	Button ders9(window, L"Ders9", 10, 330, 120, 30, &coolvetica, 9, msg); lesson_buttons.push_back(ders9);
-	Button ders10(window, L"Ders10", 10, 370, 120, 30, &coolvetica, 10, msg); lesson_buttons.push_back(ders10);
-	Button ders11(window, L"Ders11", 10, 410, 120, 30, &coolvetica, 11, msg); lesson_buttons.push_back(ders11);
-	Button ders12(window, L"Ders12", 10, 450, 120, 30, &coolvetica, 12, msg); lesson_buttons.push_back(ders12);
-	Button ders13(window, L"Ders13", 10, 490, 120, 30, &coolvetica, 13, msg); lesson_buttons.push_back(ders13);
-	Button ders14(window, L"Ders14", 10, 530, 120, 30, &coolvetica, 14, msg); lesson_buttons.push_back(ders14);
-	Button ders15(window, L"Ders15", 10, 570, 120, 30, &coolvetica, 15, msg); lesson_buttons.push_back(ders15);
+	Button ders1(window, L"Ders1", 10, 10, 160, 40, &coolvetica, 1, msg); lesson_buttons.push_back(ders1);
+	Button ders2(window, L"Ders2", 10, 60, 160, 40, &coolvetica, 2, msg); lesson_buttons.push_back(ders2);
+	Button ders3(window, L"Ders3", 10, 110, 160, 40, &coolvetica, 3, msg); lesson_buttons.push_back(ders3);
+	Button ders4(window, L"Ders4", 10, 160, 160, 40, &coolvetica, 4, msg); lesson_buttons.push_back(ders4);
+	Button ders5(window, L"Ders5", 10, 210, 160, 40, &coolvetica, 5, msg); lesson_buttons.push_back(ders5);
+	Button ders6(window, L"Ders6", 10, 260, 160, 40, &coolvetica, 6, msg); lesson_buttons.push_back(ders6);
+	Button ders7(window, L"Ders7", 10, 310, 160, 40, &coolvetica, 7, msg); lesson_buttons.push_back(ders7);
+	Button ders8(window, L"Ders8", 10, 360, 160, 40, &coolvetica, 8, msg); lesson_buttons.push_back(ders8);
+	Button ders9(window, L"Ders9", 10, 410, 160, 40, &coolvetica, 9, msg); lesson_buttons.push_back(ders9);
+	Button ders10(window, L"Ders10", 10, 460, 160, 40, &coolvetica, 10, msg); lesson_buttons.push_back(ders10);
+	Button ders11(window, L"Ders11", 10, 510, 160, 40, &coolvetica, 11, msg); lesson_buttons.push_back(ders11);
+	Button ders12(window, L"Ders12", 10, 560, 160, 40, &coolvetica, 12, msg); lesson_buttons.push_back(ders12);
+	Button ders13(window, L"Ders13", 10, 610, 160, 40, &coolvetica, 13, msg); lesson_buttons.push_back(ders13);
+	Button ders14(window, L"Ders14", 10, 660, 160, 40, &coolvetica, 14, msg); lesson_buttons.push_back(ders14);
+	Button ders15(window, L"Ders15", 10, 710, 160, 40, &coolvetica, 15, msg); lesson_buttons.push_back(ders15);
 
     sf::Event event;
     while(window->isOpen()) {
