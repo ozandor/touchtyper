@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <stdio.h>
+#include "Button.h"
 
 int ref_width = 1120;
 int ref_height = 630;
@@ -23,10 +24,8 @@ int main() {
 	} else {
 		printf("Coolvetica Condensed loaded. \n"); //Message if font loaded.
 	}
-
-	sf::Text firstText(L"Deneme yazısı", coolvetica, 30);
-	sf::Text secondText(L"Deneme yazısı2", coolvetica_ince, 30);
-	secondText.setPosition(0,40);
+	
+	Button btn(window, L"Deneme1", 10, 10, 120, 30, &coolvetica, 1);
 
     sf::Event event;
     while(window->isOpen()) {
@@ -42,11 +41,11 @@ int main() {
 				}
 			}
 		}
-        
+        btn.Calculate();
+
         window->clear(sf::Color::Black); 
 
-		window->draw(firstText);
-		window->draw(secondText);
+		btn.Draw();
 
         window->display();
     }

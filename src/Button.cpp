@@ -1,10 +1,11 @@
 #include "Button.h"
 
-Button::Button(sf::RenderWindow* window, wstring title, int dx, int dy, int dw, int dh, sf::Font* font) {
+Button::Button(sf::RenderWindow* window, wstring title, int dx, int dy, int dw, int dh, sf::Font* font, int output) {
     wind = window;
-    font_size = dh*0.8;
+    font_size = dh*0.7;
     
-    //trying webhook
+    output_mod = output;
+
     x = dx;
     y = dy;
     w = dw;
@@ -53,19 +54,17 @@ Button::Button(sf::RenderWindow* window, wstring title, int dx, int dy, int dw, 
 		printf("light_pressed texture loaded. \n"); //Message if file loads.
 	}
 
-    drawing = new sf::Sprite();
-    drawing->setTexture(*darkI);
-    drawing->setScale(dw / 1000, dh / 250);
-    drawing->setPosition(dx, dy);
+    
+    drawing = new sf::Sprite(*darkI);
+    //drawing->setPosition(dx, dy);
+    drawing->setPosition(sf::Vector2f(dx, dy));
+    drawing->setScale((double)dw / 1000, (double)dh / 250);
     
 
-    button_title = new sf::Text();
-
-    button_title->setString(title);
-    button_title->setFont(*font);
-    button_title->setCharacterSize(font_size);
+    button_title = new sf::Text(title, *font, font_size);
     button_title->setOrigin(button_title->getGlobalBounds().width / 2, button_title->getGlobalBounds().height / 2);
-    button_title->setPosition(dx + dw/2, dy + dh/2);
+    button_title->setPosition(dx + dw/2, dy + dh/4);
+    //button_title->setFillColor(sf::Color::Black);
 }
 
 Button::~Button() {
@@ -82,12 +81,50 @@ void Button::SetVisibility(bool v) {
 
 void Button::Calculate() {
     if (visibility) {
+        sf::Vector2i pixelPos = sf::Mouse::getPosition(*wind);
+        // convert it to world coordinates
+        sf::Vector2f worldPos = wind->mapPixelToCoords(pixelPos);
+        if (dark_mode) {
+            drawing->setTexture(*darkI);
+            button_title->setFillColor(sf::Color::White);
+        } else {
+            drawing->setTexture(*lightI);
+            button_title->setFillColor(sf::Color::Black);
+        }
+        if (worldPos.x >= x &&
+            worldPos.x <= x + w &&
+            worldPos.y >= y &&
+            worldPos.y <= y + h) {
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                if (dark_mode) {
+                    drawing->setTexture(*darkP);
+                    button_title->setFillColor(sf::Color::White);
+                } else {
+                    drawing->setTexture(*lightP);
+                    button_title->setFillColor(sf::Color::Black);
+                }
+                pressed = true;
+            } else {
+                if (pressed) {
+                    pressed = false;
+                    printf("%d\n",output_mod);
+                }
+                if (dark_mode) {
+                    drawing->setTexture(*darkH);
+                    button_title->setFillColor(sf::Color::White);
+                } else {
+                    drawing->setTexture(*lightH);
+                    button_title->setFillColor(sf::Color::Black);
+                }
 
+            }
+        }
     }
 }
 
 void Button::Draw() {
     if (visibility) {
         wind->draw(*drawing);
+        wind->draw(*button_title);
     }
 }
