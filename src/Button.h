@@ -1,19 +1,34 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include <stdio.h>
 #include <string>
+#include <SFML/Graphics.hpp>
 using namespace std;
 
 class Button {
     public:
-        Button(sf::RenderWindow* window, wstring title, double dx, double dy, double dw, double dh);
+        Button(sf::RenderWindow* window, wstring title, int dx, int dy, int dw, int dh, sf::Font* font);
         ~Button();
+
+        void SetColorMode(bool m);
+        void SetVisibility(bool v);
 
         void Calculate();
         void Draw();
+        
     private:
-        sf::RenderWindow* w = NULL;
+        sf::RenderWindow* wind = NULL;
         sf::Sprite* drawing = NULL;
-        sf::Texture* darkI = NULL, darkH = NULL, darkP = NULL;
-        sf::Texture* lightI = NULL, lightH = NULL, lightP = NULL;
+        sf::Texture *darkI = NULL, *darkH = NULL, *darkP = NULL;
+        sf::Texture *lightI = NULL, *lightH = NULL, *lightP = NULL;
+        sf::Text* button_title = NULL;
+
+        int font_size = 0;
+        bool dark_mode = true;
+        bool visibility = true;
+
+        int x = 0;
+        int y = 0;
+        int w = 0;
+        int h = 0;
+
 };
