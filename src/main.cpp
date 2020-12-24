@@ -9,7 +9,7 @@ int ref_width = 1120;
 int ref_height = 630;
 //değişim deneme
 int main() {
-    sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(ref_width, ref_height), "TIKTIKTIK", sf::Style::Titlebar | sf::Style::Close);
+    sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(ref_width, ref_height), "TIKTIKTIK", sf::Style::Default);
 
     sf::Clock clock;
 	double deltaTime = 0;
