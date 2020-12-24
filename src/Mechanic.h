@@ -8,7 +8,7 @@ using namespace std;
 
 
 class Mechanic{
-    Mechanic(string lesson);
+    Mechanic(wstring lesson);
     ~Mechanic();
 /* Checker not done yet
 inline bool checker(char a,char b){
@@ -36,23 +36,22 @@ int LengRand(){
     return LR;
 }
 
-string randomizer(string lesson,const int length){
+wstring randomizer(wstring lesson,const int length){
 
-    string randomized_s;
-    const char *block =lesson.c_str(); 
+    wstring randomized_s; 
     
     srand((unsigned)time(NULL)*getpid());
 
     randomized_s.reserve(length);
      for (int i = 0; i < length;i++){ 
-        randomized_s += block[rand()%(sizeof(block)-1)];
+        randomized_s += lesson[rand()%(sizeof(lesson)-1)];
      }
 
      return randomized_s;
 }
 
-string LastStr(string lesson){
-    string LS;
+wstring LastStr(wstring lesson){
+    wstring LS;
     for(int i=0;i<41;i++){
     LS += randomizer(lesson,LengRand());
     LS += ' ';
