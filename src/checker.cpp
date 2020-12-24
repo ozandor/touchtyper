@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 //dersin içeriğini tutan fonksiyon
 string letter(int x){
     if(x=1){
@@ -57,4 +57,4 @@ bool checker(letterexpected(),inputletter()){
     else{
         return false;
     }
-}
+}*/
