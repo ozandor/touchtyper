@@ -30,8 +30,8 @@ int main() {
 		printf("Coolvetica Condensed loaded. \n"); //Message if font loaded.
 	}
 
-	wstring deneme = "asdasdadasdasdasdasdasdasdasdasdfasfasfasfasfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfadfadfasfasfasfasfasfas";
-	ChallengeBox* box = new ChallengeBox(window, coolvetica, deneme, 16, true);
+	wstring deneme = L"asdasdadasdasdasdasdasdasdasdasdfasfasfasfasfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfadfadfasfasfasfasfasfas";
+	ChallengeBox* box = new ChallengeBox(window, &coolvetica, deneme, 16, true);
 
 	Messager* msg = new Messager();
 

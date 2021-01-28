@@ -15,12 +15,12 @@ class ChallengeBox{
 
     private:
         inline int getCharLength(char &letter, sf::Font &font, int font_size, bool boldness);
-        sf::RenderWindow* MyWindow;
-        sf::Text* txt_wrong;
-        sf::Text* txt_waiting;
-        sf::Text* txt_checked;
-        sf::Text writer;
-        sf::Font font;
+        sf::RenderWindow* MyWindow = NULL;
+        sf::Text* txt_wrong = NULL;
+        sf::Text* txt_waiting = NULL;
+        sf::Text* txt_checked = NULL;
+        sf::Text* writer = NULL;
+        sf::Font* font = NULL;
         wstring challenge_str;
         sf::Transformable start_pos;
     //    Mechanic mec;

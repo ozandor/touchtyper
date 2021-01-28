@@ -2,16 +2,16 @@
 
 ChallengeBox::ChallengeBox(sf::RenderWindow* win, sf::Font* fnt, wstring chl_str, int fontsize, bool is_dark){
     MyWindow = win;
-    font = *fnt;
+    font = fnt;
     txt_waiting->setString(challenge_str);
     dark = is_dark;
     challenge_str = chl_str;
 
     font_size = fontsize;
 
-    txt_checked = new sf::Text("", font, font_size);// tırnaklarla yaptığım tanımlamanın doğruluğundan emin değilim
-    txt_waiting = new sf::Text("", font, font_size);// debugda bi bakmak lazım
-    txt_wrong = new sf::Text("", font, font_size);
+    txt_checked = new sf::Text("", *font, font_size);// tırnaklarla yaptığım tanımlamanın doğruluğundan emin değilim
+    txt_waiting = new sf::Text("", *font, font_size);// debugda bi bakmak lazım
+    txt_wrong = new sf::Text("", *font, font_size);
 
     if(dark){
         txt_wrong->setFillColor(sf::Color(139,0,0));
@@ -49,21 +49,21 @@ void ChallengeBox::DrawChallenge(){
     char current;
 
     if(txt_checked->getString().getSize() > 0){
-        writer.setPosition(start_pos.getPosition());
-        writer.setStyle(txt_checked->getStyle());
-        writer.setFont(font);
+        writer->setPosition(start_pos.getPosition());
+        writer->setStyle(txt_checked->getStyle());
+        writer->setFont(*font);
 
         for(int i = 0; i < txt_checked->getString().getSize(); i++){
             if(linewidth < widthlimit){
                 current = txt_checked->getString()[i];
-                char_length = getCharLength(current, font, font_size, true);
-                writer.setString(current);
-                MyWindow->draw(writer);
-                writer.move(char_length + 2, 0);
+                char_length = getCharLength(current, *font, font_size, true);
+                writer->setString(current);
+                MyWindow->draw(*writer);
+                writer->move(char_length + 2, 0);
                 linewidth += (char_length + 2);
             }
             else{
-                writer.setPosition(start_pos.getPosition().x, font_size + 10);
+                writer->setPosition(start_pos.getPosition().x, font_size + 10);
                 start_pos.move(0, font_size + 10);
                 linewidth = 0;
             }
@@ -72,34 +72,34 @@ void ChallengeBox::DrawChallenge(){
 
     if(txt_wrong->getString().getSize() > 0){
         if(!(linewidth < widthlimit)){
-            writer.setPosition(start_pos.getPosition().x, font_size + 10);
+            writer->setPosition(start_pos.getPosition().x, font_size + 10);
             start_pos.move(0, font_size + 10);
             linewidth = 0;
         }
         current = txt_wrong->getString()[0];
-        char_length = getCharLength(current, font, 16, false);
-        writer.setString(current);
-        MyWindow->draw(writer);
-        writer.move(char_length + 2, 0);
+        char_length = getCharLength(current, *font, 16, false);
+        writer->setString(current);
+        MyWindow->draw(*writer);
+        writer->move(char_length + 2, 0);
         linewidth += (char_length + 2);
     }
     
     if(txt_waiting->getString().getSize() > 0){
-        writer.setPosition(start_pos.getPosition());
-        writer.setStyle(txt_waiting->getStyle());
-        writer.setFont(font);
+        writer->setPosition(start_pos.getPosition());
+        writer->setStyle(txt_waiting->getStyle());
+        writer->setFont(*font);
 
         for(int i = 0; i < txt_waiting->getString().getSize(); i++){
             if(linewidth < widthlimit){
                 current = txt_waiting->getString()[i];
-                char_length = getCharLength(current, font, font_size, false);
-                writer.setString(current);
-                MyWindow->draw(writer);
-                writer.move(char_length + 2, 0);
+                char_length = getCharLength(current, *font, font_size, false);
+                writer->setString(current);
+                MyWindow->draw(*writer);
+                writer->move(char_length + 2, 0);
                 linewidth += (char_length + 2);
             }
             else{
-                writer.setPosition(start_pos.getPosition().x, font_size + 10);
+                writer->setPosition(start_pos.getPosition().x, font_size + 10);
                 start_pos.move(0, font_size + 10);
                 linewidth = 0;
             }
