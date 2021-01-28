@@ -3,6 +3,8 @@
 #include <vector>
 #include "Button.h"
 #include "Messager.h"
+#include "ChallengeBox.h"
+#include <string>
 using namespace std;
 
 int ref_width = 1366;
@@ -27,7 +29,10 @@ int main() {
 	} else {
 		printf("Coolvetica Condensed loaded. \n"); //Message if font loaded.
 	}
-	
+
+	wstring deneme = "asdasdadasdasdasdasdasdasdasdasdfasfasfasfasfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfadfadfasfasfasfasfasfas";
+	ChallengeBox* box = new ChallengeBox(window, coolvetica, deneme, 16, true);
+
 	Messager* msg = new Messager();
 
 	vector<Button> lesson_buttons;
@@ -77,6 +82,18 @@ int main() {
 		for (int i = 0; i < lesson_buttons.size(); i++) {
 			lesson_buttons[i].Draw();
 		}
+		
+		for(int i = 0; i < deneme.size(); i++){
+			if(i == 15){
+				box->calculate(i, false);
+			}
+			else{
+				box->calculate(i, true);
+			}
+
+			box->DrawChallenge();
+		}
+
 
         window->display();
     }
