@@ -4,7 +4,8 @@
 #include "Button.h"
 #include "Messager.h"
 #include "ChallengeBox.h"
-#include <string>
+#include <synchapi.h>
+#include <iostream>
 using namespace std;
 
 int ref_width = 1366;
@@ -30,8 +31,8 @@ int main() {
 		printf("Coolvetica Condensed loaded. \n"); //Message if font loaded.
 	}
 
-	wstring deneme = L"asdasdadasdasdasdasdasdasdasdasdfasfasfasfasfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfadfadfasfasfasfasfasfas";
-	ChallengeBox* box = new ChallengeBox(window, &coolvetica, deneme, 16, true);
+	wstring deneme = L"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";cout<<"[DEBUGGER] main.cpp 34"<<endl;
+	ChallengeBox* box = new ChallengeBox(window, &coolvetica, deneme, 30, true);cout<<"[DEBUGGER] main.cpp 35"<<endl;
 
 	Messager* msg = new Messager();
 
@@ -83,16 +84,10 @@ int main() {
 			lesson_buttons[i].Draw();
 		}
 		
-		for(int i = 0; i < deneme.size(); i++){
-			if(i == 15){
-				box->calculate(i, false);
-			}
-			else{
-				box->calculate(i, true);
-			}
 
-			box->DrawChallenge();
-		}
+		box->calculate(221, false);cout<<"[DEBUGGER] main.cpp 89"<<endl;
+		box->DrawChallenge();
+		
 
 
         window->display();

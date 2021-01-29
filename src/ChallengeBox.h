@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 //#include "Mechanic.h"
+#include <iostream>
+#include <synchapi.h>
 
 using namespace std;
 
@@ -16,14 +18,16 @@ class ChallengeBox{
     private:
         inline int getCharLength(char &letter, sf::Font &font, int font_size, bool boldness);
         sf::RenderWindow* MyWindow = NULL;
-        sf::Text* txt_wrong = NULL;
-        sf::Text* txt_waiting = NULL;
-        sf::Text* txt_checked = NULL;
+        wstring str_wrong;
+        wstring str_waiting;
+        wstring str_checked;
+        wstring challenge_str;
         sf::Text* writer = NULL;
         sf::Font* font = NULL;
-        wstring challenge_str;
-        sf::Transformable start_pos;
+        sf::Transformable newline;
     //    Mechanic mec;
+        int win_height;
+        int win_width;
         int font_size;
         bool dark;
 }; 
