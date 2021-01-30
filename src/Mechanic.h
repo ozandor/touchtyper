@@ -9,32 +9,25 @@ using namespace std;
 
 
 class Mechanic{
-    
-
     public:
         Mechanic(wstring lesson);
         ~Mechanic();
 
+        int indexLast();
+        wstring InputUser();
+        void InputHandler(sf::Event* event);
+        inline bool correct();
+
         sf::String Input;
 
-        wstring LastStr(wstring lesson);
-
-        inline bool checker(char a,char b);
-
-        int indexLast();
-        
-        wstring InputUser(sf::Event* event);
-        
-        void InputHandler(sf::Event* event);
-
-        inline bool correct();
     private:
-
-        int LengRand();
-
+        wstring les;
+        bool is_correct;
         wstring InputExp;
 
+        wstring LastStr(wstring lesson);
         wstring randomizer(wstring lesson,const int length);
+        int LengRand();
 
-        bool is_correct;
+        inline bool checker(char a,char b);
 };

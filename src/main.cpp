@@ -31,29 +31,20 @@ int main() {
 		printf("Coolvetica Condensed loaded. \n"); //Message if font loaded.
 	}
 
-	Mechanic mec;
+	//Mechanic mec;
 
-	ChallengeBox* box = new ChallengeBox(window, &coolvetica, deneme, 30, true);
+	//ChallengeBox* box = new ChallengeBox(window, &coolvetica, deneme, 30, true);
 
 	Messager* msg = new Messager();
 
-	vector<Button> lesson_buttons;
+	vector<Button*> lesson_buttons;
 
-	Button ders1(window, L"Ders1", 10, 10, 160, 40, &coolvetica, 1, msg); lesson_buttons.push_back(ders1);
-	Button ders2(window, L"Ders2", 10, 60, 160, 40, &coolvetica, 2, msg); lesson_buttons.push_back(ders2);
-	Button ders3(window, L"Ders3", 10, 110, 160, 40, &coolvetica, 3, msg); lesson_buttons.push_back(ders3);
-	Button ders4(window, L"Ders4", 10, 160, 160, 40, &coolvetica, 4, msg); lesson_buttons.push_back(ders4);
-	Button ders5(window, L"Ders5", 10, 210, 160, 40, &coolvetica, 5, msg); lesson_buttons.push_back(ders5);
-	Button ders6(window, L"Ders6", 10, 260, 160, 40, &coolvetica, 6, msg); lesson_buttons.push_back(ders6);
-	Button ders7(window, L"Ders7", 10, 310, 160, 40, &coolvetica, 7, msg); lesson_buttons.push_back(ders7);
-	Button ders8(window, L"Ders8", 10, 360, 160, 40, &coolvetica, 8, msg); lesson_buttons.push_back(ders8);
-	Button ders9(window, L"Ders9", 10, 410, 160, 40, &coolvetica, 9, msg); lesson_buttons.push_back(ders9);
-	Button ders10(window, L"Ders10", 10, 460, 160, 40, &coolvetica, 10, msg); lesson_buttons.push_back(ders10);
-	Button ders11(window, L"Ders11", 10, 510, 160, 40, &coolvetica, 11, msg); lesson_buttons.push_back(ders11);
-	Button ders12(window, L"Ders12", 10, 560, 160, 40, &coolvetica, 12, msg); lesson_buttons.push_back(ders12);
-	Button ders13(window, L"Ders13", 10, 610, 160, 40, &coolvetica, 13, msg); lesson_buttons.push_back(ders13);
-	Button ders14(window, L"Ders14", 10, 660, 160, 40, &coolvetica, 14, msg); lesson_buttons.push_back(ders14);
-	Button ders15(window, L"Ders15", 10, 710, 160, 40, &coolvetica, 15, msg); lesson_buttons.push_back(ders15);
+	for (int i = 0; i < 15; i++) {
+		wstring name = L"Ders";
+		name += to_wstring(i+1);
+		Button* temp = new Button(window, name, 10, 10 + i*50, 160, 40, &coolvetica, i+1, msg);
+		lesson_buttons.push_back(temp);
+	}
 
     sf::Event event;
     while(window->isOpen()) {
@@ -72,7 +63,7 @@ int main() {
 		}
 		msg->setMessage(0);
 		for (int i = 0; i < lesson_buttons.size(); i++) {
-			lesson_buttons[i].Calculate();
+			lesson_buttons[i]->Calculate();
 		}
 		if (msg->getMessage()) {
 			//Burada butonlarla ilgili tüm işlemler yapılacak.
@@ -83,12 +74,12 @@ int main() {
         window->clear(sf::Color::Black); 
 
 		for (int i = 0; i < lesson_buttons.size(); i++) {
-			lesson_buttons[i].Draw();
+			lesson_buttons[i]->Draw();
 		}
 		
 
-		box->calculate(221, false);
-		box->DrawChallenge();
+		/*box->calculate(221, false);
+		box->DrawChallenge();*/
 		
 
 
