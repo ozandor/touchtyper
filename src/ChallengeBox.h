@@ -2,8 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 //#include "Mechanic.h"
-#include <iostream>
-#include <synchapi.h>
 
 using namespace std;
 
