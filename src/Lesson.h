@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <SFML/Graphics.hpp>
 
+
 class Lesson {
     public:
         Lesson(sf::RenderWindow* window);

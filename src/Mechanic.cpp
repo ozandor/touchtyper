@@ -40,13 +40,17 @@ void Mechanic::InputHandler(sf::Event* event){
         sf::String temp = event->text.unicode;
         if(checker(InputExp[Input.getSize()],temp.toWideString()[0])){
             Input +=event->text.unicode;
+            is_correct = true;
+        }
+        else{
+            is_correct = false;
         }
     }
 }
 
 int Mechanic::indexLast(){
     
-    return Input.getSize();
+    return Input.getSize() -1;
 }
 
 inline bool checker(char a,char b){
@@ -55,4 +59,8 @@ inline bool checker(char a,char b){
         return true;
     }
     return false;
+}
+
+inline bool Mechanic::correct(){
+    return is_correct;
 }

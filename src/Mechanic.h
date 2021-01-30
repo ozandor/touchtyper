@@ -13,7 +13,7 @@ class Mechanic{
 
     public:
         Mechanic(wstring lesson);
-    ~Mechanic();
+        ~Mechanic();
 
         sf::String Input;
 
@@ -21,7 +21,13 @@ class Mechanic{
 
         inline bool checker(char a,char b);
 
+        int indexLast();
+        
+        wstring InputUser(sf::Event* event);
+        
+        void InputHandler(sf::Event* event);
 
+        inline bool correct();
     private:
 
         int LengRand();
@@ -30,9 +36,5 @@ class Mechanic{
 
         wstring randomizer(wstring lesson,const int length);
 
-        wstring InputUser(sf::Event* event);
-
-        void InputHandler(sf::Event* event);
-
-        int indexLast();
+        bool is_correct;
 };
