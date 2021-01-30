@@ -4,35 +4,35 @@
 #include <unistd.h>
 #include <time.h>
 #include <stdlib.h>
+#include <SFML/Graphics.hpp>
 using namespace std;
 
 
 class Mechanic{
-    Mechanic(wstring lesson);
-    ~Mechanic();
+    
 
     public:
+        Mechanic(wstring lesson);
+    ~Mechanic();
+
+        sf::String Input;
+
         wstring LastStr(wstring lesson);
-// Checker not done yet
+
         inline bool checker(char a,char b);
-/*
-//expected from user
-char letterexpected(string lastStr){
-    
-}
 
-//user's input.
-char inputletter(string userInput){
 
-}
-*/
     private:
 
         int LengRand();
 
+        wstring InputExp;
+
         wstring randomizer(wstring lesson,const int length);
 
+        wstring InputUser(sf::Event* event);
 
+        void InputHandler(sf::Event* event);
 
-
+        int indexLast();
 };
