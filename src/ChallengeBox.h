@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 //#include "Mechanic.h"
+#include <iostream>
+
 
 using namespace std;
 
@@ -12,6 +14,8 @@ class ChallengeBox{
 
         void DrawChallenge();
         void calculate(int index_to_check,bool is_correct);
+
+        void setChallengeString(wstring new_str);
 
     private:
         inline int getCharLength(char &letter, sf::Font &font, int font_size, bool boldness);

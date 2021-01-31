@@ -1,17 +1,33 @@
 #include "Lesson.h"
 
-Lesson::Lesson(sf::RenderWindow* window) {
-
+Lesson::Lesson(sf::RenderWindow* win, int challenge_number, sf::Font* fnt, int fontsize, bool is_dark){
+    mechanic = new Mechanic(lesson_num[challenge_number - 1]);
+    chl_box = new ChallengeBox(win, fnt, mechanic->getLessonString(), fontsize, is_dark);
 }
 
 Lesson::~Lesson() {
     
 }
 
-void Lesson::Calculate() {
+void Lesson::execute(){
+    
+    chl_box->calculate(mechanic->getIterator(), mechanic->correct());
+    chl_box->DrawChallenge();
 
 }
 
-void Lesson::Draw() {
+Mechanic Lesson::getMechanic(){
+    return *mechanic;
+}
 
+void Lesson::setMechanic(Mechanic mec){
+    mechanic = &mec;
+}
+
+ChallengeBox Lesson::getChallengeBox(){
+    return *chl_box;
+}
+
+void Lesson::setChallengeBox(ChallengeBox box){
+    chl_box = &box;
 }

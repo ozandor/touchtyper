@@ -18,19 +18,20 @@ wstring Mechanic::InputUser(){
 void Mechanic::InputHandler(sf::Event* event){
     if (event->type == sf::Event::TextEntered){
         sf::String temp = event->text.unicode;
-        if(checker(InputExp[Input.getSize()],temp.toWideString()[0])){
-            Input +=event->text.unicode;
-            is_correct = true;
+        if(checker(InputExp[iterator],temp.toWideString()[0])){
+            is_correct = true;cout<<"[DEBUGGER] True"<<endl;
+            iterator++;
         }
         else{
-            is_correct = false;
+            is_correct = false;cout<<"[DEBUGGER] False"<<endl;
         }
+        cout<<"[DEBUGGER] iterator:"<<iterator<<endl;
     }
 }
 
-int Mechanic::indexLast(){
+int Mechanic::getIndex(){
     
-    return Input.getSize() -1;
+    return Input.getSize();
 }
 bool Mechanic::correct(){
     return is_correct;
@@ -55,10 +56,10 @@ wstring Mechanic::randomizer(wstring lesson,const int length){
     sf::String randomized_s;
     //wstring randomized_s; 
     
-    srand((unsigned)time(NULL)*getpid());
+    //srand((unsigned)time(NULL)*getpid());
 
     for (int i = 0; i < length;i++){ 
-        randomized_s += lesson[rand()%(lesson.length()-2)];
+        randomized_s += lesson[rand()%(lesson.length())];
     }
 
      return randomized_s.toWideString();
@@ -75,4 +76,8 @@ void Mechanic::LastStr(wstring lesson){
 
 wstring Mechanic::getLessonString(){
     return InputExp;
+}
+
+int Mechanic::getIterator(){
+    return iterator;
 }

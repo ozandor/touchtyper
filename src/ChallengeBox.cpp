@@ -17,6 +17,8 @@ ChallengeBox::ChallengeBox(sf::RenderWindow* win, sf::Font* fnt, wstring chl_str
     writer = new sf::Text("", *font, font_size);
 }
 
+ChallengeBox::~ChallengeBox(){}
+
 void ChallengeBox::calculate(int index_to_check, bool is_correct){
 
     if(is_correct){
@@ -137,4 +139,8 @@ void ChallengeBox::DrawChallenge(){
 
 inline int ChallengeBox::getCharLength(char &letter, sf::Font &font, int font_size, bool boldness) {
     return font.getGlyph(int(letter), font_size, boldness).advance;
+}
+
+void ChallengeBox::setChallengeString(wstring new_str){
+    challenge_str = new_str;
 }

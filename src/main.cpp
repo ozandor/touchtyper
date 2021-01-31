@@ -3,8 +3,7 @@
 #include <vector>
 #include "Button.h"
 #include "Messager.h"
-#include "ChallengeBox.h"
-#include "Mechanic.h"
+#include "Lesson.h"
 
 using namespace std;
 
@@ -13,8 +12,6 @@ int ref_height = 768;
 //değişim deneme
 int main() {
     sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(ref_width, ref_height), "TIKTIKTIK", sf::Style::Default);
-	
-	int lesson_iterator =0;
     
 	sf::Clock clock;
 	double deltaTime = 0;
@@ -33,11 +30,8 @@ int main() {
 		printf("Coolvetica Condensed loaded. \n"); //Message if font loaded.
 	}
 
-	wstring lessonkeys = L" asdfjklş";
-	Mechanic mec(lessonkeys);
-	wstring lesson_string = mec.getLessonString();
-
-	ChallengeBox* box = new ChallengeBox(window, &coolvetica, lesson_string, 40, true);
+	
+	Lesson* deneme_dersi = new Lesson(window, 3, &coolvetica, 40, true);
 
 	Messager* msg = new Messager();
 
@@ -57,7 +51,7 @@ int main() {
 
 		while(window->pollEvent(event)) {
 
-			mec.InputHandler(&event);
+			deneme_dersi->getMechanic().InputHandler(&event);
 
 			if(event.type == sf::Event::Closed)
 				window->close();
@@ -83,14 +77,8 @@ int main() {
 			lesson_buttons[i]->Draw();
 		}
 		
+		deneme_dersi->execute();
 
-		if(lesson_iterator < lesson_string.length()){
-			box->calculate(lesson_iterator, mec.correct());
-			box->DrawChallenge();
-			if(mec.correct()){
-				lesson_iterator++;
-			}
-		}
 
         window->display();
     }

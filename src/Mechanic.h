@@ -5,6 +5,8 @@
 #include <time.h>
 #include <stdlib.h>
 #include <SFML/Graphics.hpp>
+#include <iostream>
+
 using namespace std;
 
 
@@ -13,14 +15,18 @@ class Mechanic{
         Mechanic(wstring lesson);
         ~Mechanic();
 
-        int indexLast();
+        int getIndex();
         wstring InputUser();
         void InputHandler(sf::Event* event);
         bool correct();
         wstring getLessonString();
-        sf::String Input;
 
+        int getIterator();
+        void startIterator();
+
+        sf::String Input;
     private:
+        int iterator = 0;
         wstring les;
         bool is_correct;
         wstring InputExp;
