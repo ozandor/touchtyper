@@ -1,6 +1,7 @@
 #include "Mechanic.h"
 
 Mechanic::Mechanic(wstring lesson) {
+    srand(time(NULL));
     LastStr(lesson);
 }
 
@@ -46,7 +47,6 @@ inline bool Mechanic::checker(char a,char b){
 
 
 int Mechanic::LengRand(int l){
-    srand(time(NULL));
     int LR = rand() % l;
     return LR;
 }
