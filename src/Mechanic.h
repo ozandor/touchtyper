@@ -27,7 +27,7 @@ class Mechanic{
 
         void LastStr(wstring lesson);
         wstring randomizer(wstring lesson,const int length);
-        int LengRand();
+        int LengRand(int l);
 
         inline bool checker(char a,char b);
 };

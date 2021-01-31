@@ -45,33 +45,32 @@ inline bool Mechanic::checker(char a,char b){
 
 
 
-int Mechanic::LengRand(){
+int Mechanic::LengRand(int l){
     srand(time(NULL));
-    int LR = rand()%4+2;
+    int LR = rand() % l;
     return LR;
 }
 
 wstring Mechanic::randomizer(wstring lesson,const int length){
-
-    wstring randomized_s; 
+    sf::String randomized_s;
+    //wstring randomized_s; 
     
     srand((unsigned)time(NULL)*getpid());
 
-    randomized_s.reserve(length);
-     for (int i = 0; i < length;i++){ 
-        randomized_s += lesson[rand()%(sizeof(lesson)-1)];
-     }
+    for (int i = 0; i < length;i++){ 
+        randomized_s += lesson[rand()%(lesson.length()-2)];
+    }
 
-     return randomized_s;
+     return randomized_s.toWideString();
 }
 
 void Mechanic::LastStr(wstring lesson){
-    wstring LS;
-    for(int i=0;i<41;i++){
-        LS += randomizer(lesson,LengRand());
+    sf::String LS;
+    for (int i = 0; i < 41; i++) {
+        LS += randomizer(lesson,LengRand(lesson.length()));
         LS += ' ';
     }
-    InputExp=LS;
+    InputExp = LS.toWideString();
 }
 
 wstring Mechanic::getLessonString(){
