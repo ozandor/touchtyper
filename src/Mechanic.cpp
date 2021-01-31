@@ -1,7 +1,7 @@
 #include "Mechanic.h"
 
 Mechanic::Mechanic(wstring lesson) {
-    les = lesson;
+    LastStr(lesson);
 }
 
 Mechanic::~Mechanic() {
@@ -13,6 +13,7 @@ wstring Mechanic::InputUser(){
 }
 
 //This should ne in main.cpp event handler.
+
 void Mechanic::InputHandler(sf::Event* event){
     if (event->type == sf::Event::TextEntered){
         sf::String temp = event->text.unicode;
@@ -30,8 +31,7 @@ int Mechanic::indexLast(){
     
     return Input.getSize() -1;
 }
-
-inline bool Mechanic::correct(){
+bool Mechanic::correct(){
     return is_correct;
 }
 
@@ -65,12 +65,15 @@ wstring Mechanic::randomizer(wstring lesson,const int length){
      return randomized_s;
 }
 
-wstring Mechanic::LastStr(wstring lesson){
+void Mechanic::LastStr(wstring lesson){
     wstring LS;
     for(int i=0;i<41;i++){
         LS += randomizer(lesson,LengRand());
         LS += ' ';
     }
     InputExp=LS;
-    return LS;
+}
+
+wstring Mechanic::getLessonString(){
+    return InputExp;
 }

@@ -16,8 +16,8 @@ class Mechanic{
         int indexLast();
         wstring InputUser();
         void InputHandler(sf::Event* event);
-        inline bool correct();
-
+        bool correct();
+        wstring getLessonString();
         sf::String Input;
 
     private:
@@ -25,7 +25,7 @@ class Mechanic{
         bool is_correct;
         wstring InputExp;
 
-        wstring LastStr(wstring lesson);
+        void LastStr(wstring lesson);
         wstring randomizer(wstring lesson,const int length);
         int LengRand();
 

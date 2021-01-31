@@ -13,8 +13,10 @@ int ref_height = 768;
 //değişim deneme
 int main() {
     sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(ref_width, ref_height), "TIKTIKTIK", sf::Style::Default);
-
-    sf::Clock clock;
+	
+	int lesson_iterator =0;
+    
+	sf::Clock clock;
 	double deltaTime = 0;
 
 	sf::Font coolvetica;
@@ -31,9 +33,11 @@ int main() {
 		printf("Coolvetica Condensed loaded. \n"); //Message if font loaded.
 	}
 
-	//Mechanic mec;
+	wstring lessonkeys = L" asdfjklş";
+	Mechanic mec(lessonkeys);
+	wstring lesson_string = mec.getLessonString();
 
-	//ChallengeBox* box = new ChallengeBox(window, &coolvetica, deneme, 30, true);
+	ChallengeBox* box = new ChallengeBox(window, &coolvetica, lesson_string, 40, true);
 
 	Messager* msg = new Messager();
 
@@ -52,6 +56,8 @@ int main() {
 		clock.restart();
 
 		while(window->pollEvent(event)) {
+
+			mec.InputHandler(&event);
 
 			if(event.type == sf::Event::Closed)
 				window->close();
@@ -78,10 +84,13 @@ int main() {
 		}
 		
 
-		/*box->calculate(221, false);
-		box->DrawChallenge();*/
-		
-
+		if(lesson_iterator < lesson_string.length()){
+			box->calculate(lesson_iterator, mec.correct());
+			box->DrawChallenge();
+			if(mec.correct()){
+				lesson_iterator++;
+			}
+		}
 
         window->display();
     }
