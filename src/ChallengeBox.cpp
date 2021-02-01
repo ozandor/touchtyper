@@ -20,15 +20,16 @@ ChallengeBox::ChallengeBox(sf::RenderWindow* win, sf::Font* fnt, wstring chl_str
 ChallengeBox::~ChallengeBox(){}
 
 void ChallengeBox::calculate(int index_to_check, bool is_correct){
-
+    
+    str_wrong.clear();
     if(is_correct){
-        str_checked = challenge_str.substr(0, index_to_check + 1);
+        str_checked = challenge_str.substr(0, index_to_check);
         if(index_to_check < challenge_str.length()){
-            str_waiting = challenge_str.substr(index_to_check+1);
+            str_waiting = challenge_str.substr(index_to_check);
         }
     }
     else{
-        str_wrong.clear();
+
         str_checked = challenge_str.substr(0, index_to_check);
         str_wrong = challenge_str[index_to_check];
         if(index_to_check < challenge_str.length()){

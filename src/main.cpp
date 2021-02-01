@@ -31,7 +31,7 @@ int main() {
 	}
 
 	
-	Lesson* deneme_dersi = new Lesson(window, 3, &coolvetica, 40, true);
+	Lesson* deneme_dersi = new Lesson(window, 2, &coolvetica, 40, true);
 
 	Messager* msg = new Messager();
 
