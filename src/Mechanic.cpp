@@ -72,3 +72,8 @@ wstring Mechanic::getLessonString(){
 int Mechanic::getIterator(){
     return iterator;
 }
+
+void Mechanic::setLessonNumber(wstring str){
+    LastStr(str);
+    iterator = 0;
+}

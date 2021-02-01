@@ -21,10 +21,11 @@ class Mechanic{
 
         int getIterator();
 
+        void setLessonNumber(wstring str);
 
     private:
         int iterator = 0;
-        bool is_correct;
+        bool is_correct = true;
         wstring InputExp;
 
         void LastStr(wstring lesson);

@@ -19,9 +19,9 @@ class Lesson {
         //getter functions
         void setMechanic(Mechanic mec);
         void setChallengeBox(ChallengeBox box);
+        void setLessonNumber(int a);
 
     private:
-        int bisi = 0;
         sf::Clock timer;
         ChallengeBox* chl_box = NULL;
         Mechanic* mechanic = NULL;

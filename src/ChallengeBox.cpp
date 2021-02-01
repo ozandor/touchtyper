@@ -15,10 +15,6 @@ ChallengeBox::ChallengeBox(sf::RenderWindow* win, sf::Font* fnt, wstring chl_str
     win_width = MyWindow->getSize().x;
 
     writer = new sf::Text("", *font, font_size);
-
-    if(challenge_str[challenge_str.size() - 1] == ' '){
-        challenge_str.erase(challenge_str.size()-1);
-    }
 }
 
 ChallengeBox::~ChallengeBox(){}
@@ -43,7 +39,6 @@ void ChallengeBox::calculate(int index_to_check, bool is_correct){
             str_waiting = challenge_str.substr(index_to_check+1);
         }         
     }
-
 }
 
 void ChallengeBox::DrawChallenge(){
@@ -55,6 +50,10 @@ void ChallengeBox::DrawChallenge(){
     newline.setPosition(win_width*0.2, win_height*0.2);
     writer->setPosition(newline.getPosition().x, newline.getPosition().y);
     
+    str_checked.shrink_to_fit();
+    str_waiting.shrink_to_fit();
+    str_wrong.shrink_to_fit();
+
     if(str_checked.size() < challenge_str.size()){
         if(!str_checked.empty()){
 
@@ -152,4 +151,8 @@ inline int ChallengeBox::getCharLength(char &letter, sf::Font &font, int font_si
 
 void ChallengeBox::setChallengeString(wstring new_str){
     challenge_str = new_str;
+    
+    while(challenge_str[challenge_str.size() - 1] == ' '){
+        challenge_str.erase(challenge_str.size()- 1);
+    }
 }

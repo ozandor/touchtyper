@@ -32,7 +32,7 @@ int main() {
 	}
 
 	
-	Lesson* deneme_dersi = new Lesson(window, 3, &coolvetica, 40, true);
+	Lesson* deneme_dersi = new Lesson(window, 1, &coolvetica, 40, true);
 
 	Messager* msg = new Messager();
 
@@ -67,6 +67,8 @@ int main() {
 			lesson_buttons[i]->Calculate();
 		}
 		if (msg->getMessage()) {
+			deneme_dersi->setLessonNumber(msg->getMessage());
+
 			//Burada butonlarla ilgili tüm işlemler yapılacak.
 			//soldaki butonlar için ders seçimi.
 			//derslerin içindeki butonlar için de başlangıç ve yenileme seçimi.
@@ -79,9 +81,8 @@ int main() {
 		}
 		
 		deneme_dersi->execute();
-
-
-        window->display();
+        
+		window->display();
     }
 
     return EXIT_SUCCESS;

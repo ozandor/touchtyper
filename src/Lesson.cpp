@@ -10,8 +10,9 @@ Lesson::~Lesson() {
 }
 
 void Lesson::execute(){
-    
+
     chl_box->calculate(mechanic->getIterator(), mechanic->correct());
+
     chl_box->DrawChallenge();
 
 }
@@ -30,4 +31,9 @@ ChallengeBox* Lesson::getChallengeBox(){
 
 void Lesson::setChallengeBox(ChallengeBox box){
     chl_box = &box;
+}
+
+void Lesson::setLessonNumber(int a){
+    mechanic->setLessonNumber(lesson_num[a-1]);
+    chl_box->setChallengeString(mechanic->getLessonString());
 }
