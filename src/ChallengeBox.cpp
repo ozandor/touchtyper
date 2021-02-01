@@ -22,6 +22,9 @@ ChallengeBox::~ChallengeBox(){}
 void ChallengeBox::calculate(int index_to_check, bool is_correct){
     
     str_wrong.clear();
+    str_checked.clear();
+    str_waiting.clear();
+
     if(is_correct){
         str_checked = challenge_str.substr(0, index_to_check);
         if(index_to_check < challenge_str.length()){
@@ -47,30 +50,56 @@ void ChallengeBox::DrawChallenge(){
     
     newline.setPosition(win_width*0.2, win_height*0.2);
     writer->setPosition(newline.getPosition().x, newline.getPosition().y);
+    
+    if(str_checked.size() < challenge_str.size()){
+        if(!str_checked.empty()){
 
-    if(!str_checked.empty()){
+            writer->setStyle(sf::Text::Regular);
 
-        writer->setStyle(sf::Text::Regular);
+            if(dark){
+                writer->setFillColor(sf::Color(50,205,50));
+            }
+            else{
+                writer->setFillColor(sf::Color(0,255,0));
+            }
 
-        if(dark){
-            writer->setFillColor(sf::Color(50,205,50));
+            for(int i = 0; i < str_checked.length(); i++){
+                if( linewidth < widthlimit){
+                    current = str_checked[i];
+                    char_length = getCharLength(current, *font, font_size, false);
+                    writer->setString(str_checked[i]);
+                    MyWindow->draw(*writer);
+                    
+                    writer->move(char_length, 0);
+                    linewidth += char_length;
+                }
+                else{
+                    writer->setString(str_checked[i]);
+                    MyWindow->draw(*writer);
+                    newline.move(0, font_size);
+                    writer->setPosition(newline.getPosition().x, newline.getPosition().y);
+                    linewidth = 0;
+                    
+                }
+            }
         }
-        else{
-            writer->setFillColor(sf::Color(0,255,0));
-        }
 
-        for(int i = 0; i < str_checked.length(); i++){
+        if(!str_wrong.empty()){
+
+            writer->setStyle(sf::Text::Underlined | sf::Text::Bold);
+            writer->setFillColor(sf::Color(255,0,0));
+
             if( linewidth < widthlimit){
-                current = str_checked[i];
-                char_length = getCharLength(current, *font, font_size, false);
-                writer->setString(str_checked[i]);
+                current = str_wrong[0];
+                char_length = getCharLength(current, *font, font_size, true);
+                writer->setString(str_wrong[0]);
                 MyWindow->draw(*writer);
                 
                 writer->move(char_length, 0);
                 linewidth += char_length;
             }
             else{
-                writer->setString(str_checked[i]);
+                writer->setString(str_wrong[0]);
                 MyWindow->draw(*writer);
                 newline.move(0, font_size);
                 writer->setPosition(newline.getPosition().x, newline.getPosition().y);
@@ -78,64 +107,39 @@ void ChallengeBox::DrawChallenge(){
                 
             }
         }
-    }
 
-    if(!str_wrong.empty()){
+        if(!str_waiting.empty()){
 
-        writer->setStyle(sf::Text::Underlined | sf::Text::Bold);
-        writer->setFillColor(sf::Color(255,0,0));
+            writer->setStyle(sf::Text::Underlined);
 
-        if( linewidth < widthlimit){
-            current = str_wrong[0];
-            char_length = getCharLength(current, *font, font_size, true);
-            writer->setString(str_wrong[0]);
-            MyWindow->draw(*writer);
-            
-            writer->move(char_length, 0);
-            linewidth += char_length;
-        }
-        else{
-            writer->setString(str_wrong[0]);
-            MyWindow->draw(*writer);
-            newline.move(0, font_size);
-            writer->setPosition(newline.getPosition().x, newline.getPosition().y);
-            linewidth = 0;
-            
-        }
-    }
-
-    if(!str_waiting.empty()){
-
-        writer->setStyle(sf::Text::Underlined);
-
-        if(dark){
-            writer->setFillColor(sf::Color::White);
-        }
-        else{
-            writer->setFillColor(sf::Color::Black);
-        }
-
-        for(int i = 0; i < str_waiting.length(); i++){
-            if( linewidth < widthlimit){
-                current = str_waiting[i];
-                char_length = getCharLength(current, *font, font_size, false);
-                writer->setString(str_waiting[i]);
-                MyWindow->draw(*writer);
-                
-                writer->move(char_length, 0);
-                linewidth += char_length;
+            if(dark){
+                writer->setFillColor(sf::Color::White);
             }
             else{
-                writer->setString(str_waiting[i]);
-                MyWindow->draw(*writer);
-                newline.move(0, font_size);
-                writer->setPosition(newline.getPosition().x, newline.getPosition().y);
-                linewidth = 0;
-                
+                writer->setFillColor(sf::Color::Black);
+            }
+
+            for(int i = 0; i < str_waiting.length(); i++){
+                if( linewidth < widthlimit){
+                    current = str_waiting[i];
+                    char_length = getCharLength(current, *font, font_size, false);
+                    writer->setString(str_waiting[i]);
+                    MyWindow->draw(*writer);
+                    
+                    writer->move(char_length, 0);
+                    linewidth += char_length;
+                }
+                else{
+                    writer->setString(str_waiting[i]);
+                    MyWindow->draw(*writer);
+                    newline.move(0, font_size);
+                    writer->setPosition(newline.getPosition().x, newline.getPosition().y);
+                    linewidth = 0;
+                    
+                }
             }
         }
     }
-
 }
 
 inline int ChallengeBox::getCharLength(char &letter, sf::Font &font, int font_size, bool boldness) {
