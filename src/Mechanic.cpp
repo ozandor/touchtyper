@@ -9,30 +9,21 @@ Mechanic::~Mechanic() {
 
 }
 
-wstring Mechanic::InputUser(){
-    return Input.toWideString();
-}
-
 //This should ne in main.cpp event handler.
 
 void Mechanic::InputHandler(sf::Event* event){
     if (event->type == sf::Event::TextEntered){
         sf::String temp = event->text.unicode;
         if(checker(InputExp[iterator],temp.toWideString()[0])){
-            is_correct = true;cout<<"[DEBUGGER] True"<<endl;
+            is_correct = true;
             iterator++;
         }
         else{
-            is_correct = false;cout<<"[DEBUGGER] False"<<endl;
+            is_correct = false;
         }
-        cout<<"[DEBUGGER] iterator: "<<iterator<<endl;
     }
 }
 
-int Mechanic::getIndex(){
-    
-    return Input.getSize();
-}
 bool Mechanic::correct(){
     return is_correct;
 }
@@ -68,7 +59,7 @@ wstring Mechanic::randomizer(wstring lesson,const int length){
 void Mechanic::LastStr(wstring lesson){
     sf::String LS;
     for (int i = 0; i < 41; i++) {
-        LS += randomizer(lesson,LengRand(lesson.length())%2 + 3);
+        LS += randomizer(lesson,LengRand(lesson.length()));
         LS += ' ';
     }
     InputExp = LS.toWideString();
