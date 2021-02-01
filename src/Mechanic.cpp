@@ -76,4 +76,5 @@ int Mechanic::getIterator(){
 void Mechanic::setLessonNumber(wstring str){
     LastStr(str);
     iterator = 0;
+    is_correct = true;
 }
