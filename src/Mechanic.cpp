@@ -25,7 +25,7 @@ void Mechanic::InputHandler(sf::Event* event){
         else{
             is_correct = false;cout<<"[DEBUGGER] False"<<endl;
         }
-        cout<<"[DEBUGGER] iterator:"<<iterator<<endl;
+        cout<<"[DEBUGGER] iterator: "<<iterator<<endl;
     }
 }
 

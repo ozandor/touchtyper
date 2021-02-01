@@ -14,8 +14,8 @@ class Lesson {
         void execute();
 
         //setter functions
-        Mechanic getMechanic();
-        ChallengeBox getChallengeBox();
+        Mechanic* getMechanic();
+        ChallengeBox* getChallengeBox();
         //getter functions
         void setMechanic(Mechanic mec);
         void setChallengeBox(ChallengeBox box);

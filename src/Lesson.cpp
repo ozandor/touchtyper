@@ -16,16 +16,16 @@ void Lesson::execute(){
 
 }
 
-Mechanic Lesson::getMechanic(){
-    return *mechanic;
+Mechanic* Lesson::getMechanic(){
+    return mechanic;
 }
 
 void Lesson::setMechanic(Mechanic mec){
     mechanic = &mec;
 }
 
-ChallengeBox Lesson::getChallengeBox(){
-    return *chl_box;
+ChallengeBox* Lesson::getChallengeBox(){
+    return chl_box;
 }
 
 void Lesson::setChallengeBox(ChallengeBox box){

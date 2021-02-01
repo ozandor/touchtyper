@@ -51,7 +51,7 @@ int main() {
 
 		while(window->pollEvent(event)) {
 
-			deneme_dersi->getMechanic().InputHandler(&event);
+			deneme_dersi->getMechanic()->InputHandler(&event);
 
 			if(event.type == sf::Event::Closed)
 				window->close();
