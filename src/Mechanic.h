@@ -21,10 +21,13 @@ class Mechanic{
 
         int getIterator();
 
+        void resetMistakes();
+        int getMistakeCount();
         void setLessonNumber(wstring str);
 
     private:
         int iterator = 0;
+        int mistake_counter = 0;
         bool is_correct;
         wstring InputExp;
 

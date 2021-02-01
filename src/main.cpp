@@ -32,7 +32,7 @@ int main() {
 	}
 
 	
-	Lesson* lesson = new Lesson(window, 1, &coolvetica, 40, true);
+	Lesson* lesson = new Lesson(window, 1, &coolvetica, 50, true);
 
 	Messager* msg = new Messager();
 
@@ -54,6 +54,7 @@ int main() {
 
 			lesson->getMechanic()->InputHandler(&event);
 
+
 			if(event.type == sf::Event::Closed)
 				window->close();
 			if(event.type == sf::Event::KeyPressed) {
@@ -68,7 +69,7 @@ int main() {
 		}
 		if (msg->getMessage()) {
 			lesson->setLessonNumber(msg->getMessage());
-
+			lesson->getMechanic()->resetMistakes();
 			//Burada butonlarla ilgili tüm işlemler yapılacak.
 			//soldaki butonlar için ders seçimi.
 			//derslerin içindeki butonlar için de başlangıç ve yenileme seçimi.
@@ -81,7 +82,7 @@ int main() {
 		}
 		
 		lesson->execute();
-        
+        lesson->displayMistakeCount();
 		window->display();
     }
 

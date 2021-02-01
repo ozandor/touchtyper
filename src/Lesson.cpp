@@ -3,6 +3,13 @@
 Lesson::Lesson(sf::RenderWindow* win, int challenge_number, sf::Font* fnt, int fontsize, bool is_dark){
     mechanic = new Mechanic(lesson_num[challenge_number - 1]);
     chl_box = new ChallengeBox(win, fnt, fontsize, is_dark);
+    MistakeCount = new sf::Text("", *fnt, 100);
+
+    window = win;
+    
+    win_height = window->getSize().y;
+    win_width = window->getSize().x;
+    MistakeCount->setPosition(win_width*0.5, win_height*0.5);
 }
 
 Lesson::~Lesson() {
@@ -36,4 +43,11 @@ void Lesson::setChallengeBox(ChallengeBox box){
 void Lesson::setLessonNumber(int a){
     mechanic->setLessonNumber(lesson_num[a-1]);
     chl_box->setChallengeString(mechanic->getLessonString());
+}
+
+
+void Lesson::displayMistakeCount(){
+    MistakeCount->setString(to_string(mechanic->getMistakeCount()));
+
+    window->draw(*MistakeCount);
 }

@@ -4,6 +4,7 @@
 #include "Mechanic.h"
 #include "ChallengeBox.h"
 #include <iostream>
+
 using namespace std;
 
 class Lesson {
@@ -13,6 +14,7 @@ class Lesson {
 
         void execute();
 
+        void displayMistakeCount();
         //setter functions
         Mechanic* getMechanic();
         ChallengeBox* getChallengeBox();
@@ -21,7 +23,13 @@ class Lesson {
         void setChallengeBox(ChallengeBox box);
         void setLessonNumber(int a);
 
+
     private:
+        sf::Text* MistakeCount;
+
+        sf::RenderWindow* window = NULL;
+        int win_height;
+        int win_width;
         sf::Clock timer;
         ChallengeBox* chl_box = NULL;
         Mechanic* mechanic = NULL;
@@ -36,4 +44,6 @@ class Lesson {
             L"qwertyuıopğüasdfghjklşizxcvbnmöç.,QWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇ1234567890\"\"!!'%'%/(())??--==::;;",
             L"qwertyuıopğüasdfghjklşizxcvbnmöç.,QWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇ1234567890\"!'%/()?-=:;"
         };
+
+
 };

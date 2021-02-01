@@ -20,6 +20,7 @@ void Mechanic::InputHandler(sf::Event* event){
         }
         else{
             is_correct = false;
+            mistake_counter++;
         }
     }
 }
@@ -77,4 +78,12 @@ void Mechanic::setLessonNumber(wstring str){
     LastStr(str);
     iterator = 0;
     is_correct = true;
+}
+
+void Mechanic::resetMistakes(){
+    mistake_counter = 0;
+}
+
+int Mechanic::getMistakeCount(){
+    return mistake_counter;
 }
