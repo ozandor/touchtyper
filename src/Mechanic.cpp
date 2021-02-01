@@ -60,7 +60,7 @@ wstring Mechanic::randomizer(wstring lesson,const int length){
 void Mechanic::LastStr(wstring lesson){
     sf::String LS;
     for (int i = 0; i < 41; i++) {
-        LS += randomizer(lesson,LengRand(lesson.length())%2 + 3);
+        LS += randomizer(lesson,LengRand(lesson.length())%3 + 3);
         LS += ' ';
     }
     InputExp = LS.toWideString();
