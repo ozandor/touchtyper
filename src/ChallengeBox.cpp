@@ -15,6 +15,10 @@ ChallengeBox::ChallengeBox(sf::RenderWindow* win, sf::Font* fnt, wstring chl_str
     win_width = MyWindow->getSize().x;
 
     writer = new sf::Text("", *font, font_size);
+
+    if(challenge_str[challenge_str.size() - 1] == ' '){
+        challenge_str.erase(challenge_str.size()-1);
+    }
 }
 
 ChallengeBox::~ChallengeBox(){}
@@ -44,7 +48,7 @@ void ChallengeBox::calculate(int index_to_check, bool is_correct){
 
 void ChallengeBox::DrawChallenge(){
     int linewidth = 0;
-    int widthlimit = win_width*0.6;
+    int widthlimit = win_width*0.7;
     int char_length;
     char current;
     
