@@ -25,7 +25,7 @@ class Mechanic{
 
     private:
         int iterator = 0;
-        bool is_correct = true;
+        bool is_correct;
         wstring InputExp;
 
         void LastStr(wstring lesson);
