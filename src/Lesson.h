@@ -23,16 +23,22 @@ class Lesson {
         void setChallengeBox(ChallengeBox box);
         void setLessonNumber(int a);
 
+        void resetTimer();
 
     private:
+        sf::RenderWindow* window = NULL;
+
         sf::Text* MistakeCount;
 
-        sf::RenderWindow* window = NULL;
-        int win_height;
-        int win_width;
         sf::Clock timer;
+        sf::Text* timer_text = NULL;
+
         ChallengeBox* chl_box = NULL;
         Mechanic* mechanic = NULL;
+        
+        int win_height;
+        int win_width;
+
         wstring lesson_num[15] = {
             L"asdf", L"jklş", L"asdfjklş", L"asdfghghjklş", L"asdfghjklşii,,",
             L"asdfghjklşi,AASSDDFFGGHHJJKKLLŞŞİİ", L"asdfghjklşi,ASDFGHJKLŞİ;qqwweerrttQQWWEERRTT",

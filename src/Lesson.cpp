@@ -45,6 +45,10 @@ void Lesson::setLessonNumber(int a){
     chl_box->setChallengeString(mechanic->getLessonString());
 }
 
+void Lesson::resetTimer() {
+    timer.restart();
+}
+
 
 void Lesson::displayMistakeCount(){
     MistakeCount->setString(to_string(mechanic->getMistakeCount()));

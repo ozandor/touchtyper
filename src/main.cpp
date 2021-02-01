@@ -71,6 +71,7 @@ int main() {
 		if (msg->getMessage()) {
 			lesson->setLessonNumber(msg->getMessage());
 			lesson->getMechanic()->resetMistakes();
+			lesson->resetTimer();
 			//Burada butonlarla ilgili tüm işlemler yapılacak.
 			//soldaki butonlar için ders seçimi.
 			//derslerin içindeki butonlar için de başlangıç ve yenileme seçimi.
