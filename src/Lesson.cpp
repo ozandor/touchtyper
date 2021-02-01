@@ -2,7 +2,7 @@
 
 Lesson::Lesson(sf::RenderWindow* win, int challenge_number, sf::Font* fnt, int fontsize, bool is_dark){
     mechanic = new Mechanic(lesson_num[challenge_number - 1]);
-    chl_box = new ChallengeBox(win, fnt, mechanic->getLessonString(), fontsize, is_dark);
+    chl_box = new ChallengeBox(win, fnt, fontsize, is_dark);
 }
 
 Lesson::~Lesson() {

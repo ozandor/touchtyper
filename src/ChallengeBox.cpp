@@ -2,14 +2,11 @@
 
 using namespace std;
 
-ChallengeBox::ChallengeBox(sf::RenderWindow* win, sf::Font* fnt, wstring chl_str, int fontsize, bool is_dark){
+ChallengeBox::ChallengeBox(sf::RenderWindow* win, sf::Font* fnt, int fontsize, bool is_dark){
     MyWindow = win;
     font = fnt;
     font_size = fontsize;
     dark = is_dark;
-
-    challenge_str = chl_str;
-    str_waiting = chl_str;
 
     win_height = MyWindow->getSize().y;
     win_width = MyWindow->getSize().x;
@@ -54,7 +51,8 @@ void ChallengeBox::DrawChallenge(){
     str_waiting.shrink_to_fit();
     str_wrong.shrink_to_fit();
 
-    if(str_checked.size() < challenge_str.size()){
+    if(!challenge_str.empty() && str_checked.size() < challenge_str.size()){
+
         if(!str_checked.empty()){
 
             writer->setStyle(sf::Text::Regular);
@@ -151,7 +149,8 @@ inline int ChallengeBox::getCharLength(char &letter, sf::Font &font, int font_si
 
 void ChallengeBox::setChallengeString(wstring new_str){
     challenge_str = new_str;
-    
+    str_waiting = new_str;
+
     while(challenge_str[challenge_str.size() - 1] == ' '){
         challenge_str.erase(challenge_str.size()- 1);
     }

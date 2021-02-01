@@ -32,7 +32,7 @@ int main() {
 	}
 
 	
-	Lesson* deneme_dersi = new Lesson(window, 1, &coolvetica, 40, true);
+	Lesson* lesson = new Lesson(window, 1, &coolvetica, 40, true);
 
 	Messager* msg = new Messager();
 
@@ -52,7 +52,7 @@ int main() {
 
 		while(window->pollEvent(event)) {
 
-			deneme_dersi->getMechanic()->InputHandler(&event);
+			lesson->getMechanic()->InputHandler(&event);
 
 			if(event.type == sf::Event::Closed)
 				window->close();
@@ -67,7 +67,7 @@ int main() {
 			lesson_buttons[i]->Calculate();
 		}
 		if (msg->getMessage()) {
-			deneme_dersi->setLessonNumber(msg->getMessage());
+			lesson->setLessonNumber(msg->getMessage());
 
 			//Burada butonlarla ilgili tüm işlemler yapılacak.
 			//soldaki butonlar için ders seçimi.
@@ -80,7 +80,7 @@ int main() {
 			lesson_buttons[i]->Draw();
 		}
 		
-		deneme_dersi->execute();
+		lesson->execute();
         
 		window->display();
     }
