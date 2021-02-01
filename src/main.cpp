@@ -13,7 +13,8 @@ int ref_height = 768;
 //değişim deneme
 int main() {
     sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(ref_width, ref_height), "TIKTIKTIK", sf::Style::Default);
-    
+    window->setVerticalSyncEnabled(true);
+	
 	sf::Clock clock;
 	double deltaTime = 0;
 
