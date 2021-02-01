@@ -21,8 +21,8 @@ class Button {
 
         sf::RenderWindow* wind = NULL;
         sf::Sprite* drawing = NULL;
-        sf::Texture *darkI = NULL, *darkH = NULL, *darkP = NULL;
-        sf::Texture *lightI = NULL, *lightH = NULL, *lightP = NULL;
+        static sf::Texture *darkI, *darkH, *darkP;
+        static sf::Texture *lightI, *lightH, *lightP;
         sf::Text* button_title = NULL;
 
         int font_size = 0;

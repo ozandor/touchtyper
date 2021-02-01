@@ -1,5 +1,12 @@
 #include "Button.h"
 
+sf::Texture* Button::darkI = NULL;
+sf::Texture* Button::darkH = NULL;
+sf::Texture* Button::darkP = NULL;
+sf::Texture* Button::lightI = NULL;
+sf::Texture* Button::lightH = NULL;
+sf::Texture* Button::lightP = NULL;
+
 Button::Button(sf::RenderWindow* window, wstring title, int dx, int dy, int dw, int dh, sf::Font* font, int output, Messager* msg) {
     wind = window;
     font_size = dh*0.7;
@@ -12,50 +19,50 @@ Button::Button(sf::RenderWindow* window, wstring title, int dx, int dy, int dw, 
     y = dy;
     w = dw;
     h = dh;
+    if (darkI == NULL) {
+        darkI = new sf::Texture();
+        darkH = new sf::Texture();
+        darkP = new sf::Texture();
+        lightI = new sf::Texture();
+        lightH = new sf::Texture();
+        lightP = new sf::Texture();
 
-    darkI = new sf::Texture();
-    darkH = new sf::Texture();
-    darkP = new sf::Texture();
-    lightI = new sf::Texture();
-    lightH = new sf::Texture();
-    lightP = new sf::Texture();
+        if (!darkI->loadFromFile("buttons/dark_idle.png")) { //! Texture read from file.
+    	    printf("Couldn't load dark_idle texture. \n"); //Message if file doesn't load.
+	    } else {
+		    printf("dark_idle texture loaded. \n"); //Message if file loads.
+	    }
 
-    if (!darkI->loadFromFile("buttons/dark_idle.png")) { //! Texture read from file.
-    	printf("Couldn't load dark_idle texture. \n"); //Message if file doesn't load.
-	} else {
-		printf("dark_idle texture loaded. \n"); //Message if file loads.
-	}
+        if (!darkH->loadFromFile("buttons/dark_hover.png")) { //! Texture read from file.
+    	    printf("Couldn't load dark_hover texture. \n"); //Message if file doesn't load.
+	    } else {
+		    printf("dark_hover texture loaded. \n"); //Message if file loads.
+	    }
 
-    if (!darkH->loadFromFile("buttons/dark_hover.png")) { //! Texture read from file.
-    	printf("Couldn't load dark_hover texture. \n"); //Message if file doesn't load.
-	} else {
-		printf("dark_hover texture loaded. \n"); //Message if file loads.
-	}
+        if (!darkP->loadFromFile("buttons/dark_pressed.png")) { //! Texture read from file.
+        	printf("Couldn't load dark_pressed texture. \n"); //Message if file doesn't load.
+        } else {
+        	printf("dark_pressed texture loaded. \n"); //Message if file loads.
+        }
 
-    if (!darkP->loadFromFile("buttons/dark_pressed.png")) { //! Texture read from file.
-    	printf("Couldn't load dark_pressed texture. \n"); //Message if file doesn't load.
-	} else {
-		printf("dark_pressed texture loaded. \n"); //Message if file loads.
-	}
+        if (!lightI->loadFromFile("buttons/light_idle.png")) { //! Texture read from file.
+        	printf("Couldn't load light_idle texture. \n"); //Message if file doesn't load.
+        } else {
+        	printf("light_idle texture loaded. \n"); //Message if file loads.
+        }
 
-    if (!lightI->loadFromFile("buttons/light_idle.png")) { //! Texture read from file.
-    	printf("Couldn't load light_idle texture. \n"); //Message if file doesn't load.
-	} else {
-		printf("light_idle texture loaded. \n"); //Message if file loads.
-	}
+        if (!lightH->loadFromFile("buttons/light_hover.png")) { //! Texture read from file.
+        	printf("Couldn't load light_hover texture. \n"); //Message if file doesn't load.
+        } else {
+        	printf("light_hover texture loaded. \n"); //Message if file loads.
+        }
 
-    if (!lightH->loadFromFile("buttons/light_hover.png")) { //! Texture read from file.
-    	printf("Couldn't load light_hover texture. \n"); //Message if file doesn't load.
-	} else {
-		printf("light_hover texture loaded. \n"); //Message if file loads.
-	}
-
-    if (!lightP->loadFromFile("buttons/light_pressed.png")) { //! Texture read from file.
-    	printf("Couldn't load light_pressed texture. \n"); //Message if file doesn't load.
-	} else {
-		printf("light_pressed texture loaded. \n"); //Message if file loads.
-	}
-
+        if (!lightP->loadFromFile("buttons/light_pressed.png")) { //! Texture read from file.
+        	printf("Couldn't load light_pressed texture. \n"); //Message if file doesn't load.
+        } else {
+        	printf("light_pressed texture loaded. \n"); //Message if file loads.
+        }
+    }
     
     drawing = new sf::Sprite(*darkI);
     //drawing->setPosition(dx, dy);
