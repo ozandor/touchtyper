@@ -40,15 +40,16 @@ class Lesson {
         int win_width;
 
         wstring lesson_num[15] = {
-            L"asdf", L"jklş", L"asdfjklş", L"asdfghghjklş", L"asdfghjklşii,,",
-            L"asdfghjklşi,AASSDDFFGGHHJJKKLLŞŞİİ", L"asdfghjklşi,ASDFGHJKLŞİ;qqwweerrttQQWWEERRTT",
-            L"asdfghjklşi,ASDFGHJKLŞİqwertQWERTyyuuııooppYYUUIIOOPP", L"asdfghjklşiqwertyuıop,ASDFGHJKLŞİğğüüĞĞÜÜ",
-            L"asdfghjklşiqwertyuıopğü,ASDFGHJKLŞİQWERTYUIOPĞÜzzxxccvvbbZZXXCCVVBB",
-            L"asdfghjklşiqwertyuıopğüzxcvb,ASDFGHJKLŞİQWERTYUIOPĞÜZXCVBnnmmööçç..NNMMÖÖÇÇ",
-            L"qwertyuıopğüasdfghjklşizxcvbnmöç.,QWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇ1122334455",
-            L"qwertyuıopğüasdfghjklşizxcvbnmöç.,QWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇ123456677889900",
-            L"qwertyuıopğüasdfghjklşizxcvbnmöç.,QWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇ1234567890\"\"!!'%'%/(())??--==::;;",
-            L"qwertyuıopğüasdfghjklşizxcvbnmöç.,QWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇ1234567890\"!'%/()?-=:;"
+            L"asdf", L"jklş", L"asdfjklş", L"asdfghghjklş", L"asdfghjklşii,",
+            L"asdfghjklşiasdfghjklşi,ASDFGHJKLŞİ", L"asdfghjklşiqqwweerrttasdfghjklşiqqwweerrtt,ASDFGHJKLŞİQWERT",
+            L"asdfghjklşiqwertyyuuııooppasdfghjklşiqwertyyuuııoopp,ASDFGHJKLŞİQWERTYUIOP",
+            L"asdfghjklşiqwertyuıopğğüüasdfghjklşiqwertyuıopğğüüğğüüğğüü,ASDFGHJKLŞİQWERTYUIOPĞĞÜÜ",
+            L"asdfghjklşiqwertyuıopğüzzxxccvvbbasdfghjklşiqwertyuıopğüzzxxccvvbbzzxxccvvbb,ASDFGHJKLŞİQWERTYUIOPĞÜZXCVB",
+            L"asdfghjklşiqwertyuıopğüzxcvbnnmmööççasdfghjklşiqwertyuıopğüzxcvbnnmmööççnnmmööçç...,ASDFGHJKLŞİQWERTYUIOPĞÜZXCVBNNMMÖÖÇÇ",
+            L"qwertyuıopğüasdfghjklşizxcvbnmöçqwertyuıopğüasdfghjklşizxcvbnmöç.,QWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇ1122334455",
+            L"qwertyuıopğüasdfghjklşizxcvbnmöçqwertyuıopğüasdfghjklşizxcvbnmöç.,QWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇ123456677889900",
+            L"qwertyuıopğüasdfghjklşizxcvbnmöçqwertyuıopğüasdfghjklşizxcvbnmöç.,QWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇ1234567890\"!''%/()?-=:;",
+            L"qwertyuıopğüasdfghjklşizxcvbnmöçqwertyuıopğüasdfghjklşizxcvbnmöç.,QWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇ1234567890\"!'%/()?-=:;"
         };
 
 
