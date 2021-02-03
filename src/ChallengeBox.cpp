@@ -42,7 +42,7 @@ bool ChallengeBox::DrawChallenge(){
     int linewidth = 0;
     int widthlimit = win_width*0.7;
     int char_length;
-    char current;
+    wchar_t current;
     
     newline.setPosition(win_width*0.2, win_height*0.2);
     writer->setPosition(newline.getPosition().x, newline.getPosition().y);
@@ -146,7 +146,7 @@ bool ChallengeBox::DrawChallenge(){
     return false;
 }
 
-inline int ChallengeBox::getCharLength(char &letter, sf::Font &font, int font_size, bool boldness) {
+inline int ChallengeBox::getCharLength(wchar_t &letter, sf::Font &font, int font_size, bool boldness) {
     return font.getGlyph(int(letter), font_size, boldness).advance;
 }
 

@@ -18,7 +18,7 @@ class ChallengeBox{
         void setChallengeString(wstring new_str);
 
     private:
-        inline int getCharLength(char &letter, sf::Font &font, int font_size, bool boldness);
+        inline int getCharLength(wchar_t &letter, sf::Font &font, int font_size, bool boldness);
         sf::RenderWindow* MyWindow = NULL;
         wstring str_wrong;
         wstring str_waiting;

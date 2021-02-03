@@ -19,7 +19,7 @@ int main() {
 	double deltaTime = 0;
 
 	sf::Font coolvetica;
-	if (!coolvetica.loadFromFile("coolvetica.ttf")) { //Font being read from file.
+	if (!coolvetica.loadFromFile("aflfont.ttf")) { //Font being read from file.
     	printf("Couldn't load Coolvetica. \n"); //Message for load error
 	} else {
 		printf("Coolvetica loaded. \n"); //Message if font loaded.
