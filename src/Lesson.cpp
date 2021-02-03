@@ -11,7 +11,7 @@ Lesson::Lesson(sf::RenderWindow* win, int challenge_number, sf::Font* fnt, int f
     win_height = window->getSize().y;
     win_width = window->getSize().x;
     LasTimeCount->setPosition(win_width*0.37, win_height*0.07);
-    MistakeCount->setPosition(win_width*0.5, win_height*0.5);
+    MistakeCount->setPosition(win_width*0.5, win_height*0.8);
 }
 
 Lesson::~Lesson() {

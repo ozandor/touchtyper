@@ -77,7 +77,7 @@ bool ChallengeBox::DrawChallenge(){
                 else{
                     writer->setString(str_checked[i]);
                     MyWindow->draw(*writer);
-                    newline.move(0, font_size);
+                    newline.move(0, font_size + 5);
                     writer->setPosition(newline.getPosition().x, newline.getPosition().y);
                     linewidth = 0;
                     
@@ -102,7 +102,7 @@ bool ChallengeBox::DrawChallenge(){
             else{
                 writer->setString(str_wrong[0]);
                 MyWindow->draw(*writer);
-                newline.move(0, font_size);
+                newline.move(0, font_size + 5);
                 writer->setPosition(newline.getPosition().x, newline.getPosition().y);
                 linewidth = 0;
                 
@@ -133,7 +133,7 @@ bool ChallengeBox::DrawChallenge(){
                 else{
                     writer->setString(str_waiting[i]);
                     MyWindow->draw(*writer);
-                    newline.move(0, font_size);
+                    newline.move(0, font_size + 5);
                     writer->setPosition(newline.getPosition().x, newline.getPosition().y);
                     linewidth = 0;
                     
