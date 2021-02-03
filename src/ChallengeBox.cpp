@@ -38,7 +38,7 @@ void ChallengeBox::calculate(int index_to_check, bool is_correct){
     }
 }
 
-void ChallengeBox::DrawChallenge(){
+bool ChallengeBox::DrawChallenge(){
     int linewidth = 0;
     int widthlimit = win_width*0.7;
     int char_length;
@@ -140,7 +140,10 @@ void ChallengeBox::DrawChallenge(){
                 }
             }
         }
+    } else {
+        return true;
     }
+    return false;
 }
 
 inline int ChallengeBox::getCharLength(char &letter, sf::Font &font, int font_size, bool boldness) {

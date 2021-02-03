@@ -12,7 +12,7 @@ class ChallengeBox{
         ChallengeBox(sf::RenderWindow* win, sf::Font* fnt, int fontsize, bool is_dark);
         ~ChallengeBox();
 
-        void DrawChallenge();
+        bool DrawChallenge();
         void calculate(int index_to_check,bool is_correct);
 
         void setChallengeString(wstring new_str);

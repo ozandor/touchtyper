@@ -28,7 +28,8 @@ class Lesson {
     private:
         sf::RenderWindow* window = NULL;
 
-        sf::Text* MistakeCount;
+        sf::Text* MistakeCount = NULL;
+        sf::Text* LasTimeCount = NULL;
 
         sf::Clock timer;
         sf::Text* timer_text = NULL;
@@ -38,7 +39,11 @@ class Lesson {
         
         int win_height;
         int win_width;
+        
+        int curTime = 0;
+        int LastLesson = 0;
 
+        sf::String strTime;
         wstring lesson_num[15] = {
             L"asdf", L"jklş", L"asdfjklş", L"asdfghghjklş", L"asdfghjklşii,",
             L"asdfghjklşiasdfghjklşi,ASDFGHJKLŞİ", L"asdfghjklşiqqwweerrttasdfghjklşiqqwweerrtt,ASDFGHJKLŞİQWERT",
